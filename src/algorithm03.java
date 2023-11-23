@@ -96,16 +96,16 @@ public class algorithm03 {
 
     public static int dfs(int cX, int cY, int[][] maps, int[][] visited){
 
-        if (cX == maps.length - 1 && cY == maps[0].length - 1) {
-            return sum;
-        }
-
         for (int i = 0; i < 4; i++) {
             int mX = cX + dx[i];
             int mY = cY + dy[i];
             if (mX >= 0 && mX < maps.length && mY >= 0 && mY < maps[0].length && maps[mX][mY] == 1 && visited[mX][mY] == 0 ) {
                 visited[mX][mY] = 1;
                 sum ++;
+
+                if (mX == maps.length - 1 && mY == maps[0].length - 1) {
+                    return sum;
+                }
                 return dfs(mX, mY, maps, visited);
             }
         }
