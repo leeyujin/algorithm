@@ -36,7 +36,7 @@ public class algorithm05 {
 
 
 
-        System.out.println(solution(5, inputArr4));
+        System.out.println(solution(5, inputArr3));
     }
 
     static Queue<int[]> queue = new LinkedList<>();
@@ -48,13 +48,13 @@ public class algorithm05 {
         }
 
         // 반토막을 내서 값이 1이면 Queue.add
-       for( int x = 1 ; x < n ; x ++){
-           for( int y = 0 ; y <= x-1 ; y++ ){
-               if( computers[x][y] == 1 ) {
-                   queue.add(new int[]{x,y});
-               }
-           }
-       }
+        for( int x = 1 ; x < n ; x ++){
+            for( int y = 0 ; y <= x-1 ; y++ ){
+                if( computers[x][y] == 1 ) {
+                    queue.add(new int[]{x,y});
+                }
+            }
+        }
 
         // Queue.remove -> X,Y 뒤집어서 값이 1이면 network에 추가
         while( !queue.isEmpty() ){
@@ -74,15 +74,40 @@ public class algorithm05 {
         }
 
         Queue<Integer> integerQueue = new LinkedList<>();
-        int networkCount = 0;
+        int[] visitied = new int[n];
 
         while( !networkList.isEmpty()){
             int[] points = networkList.remove();
             int x = points[0];
             int y = points[1];
+            integerQueue.add(x);
+            integerQueue.add(y);
 
+            while( !integerQueue.isEmpty() ) {
+                Integer poll = integerQueue.poll();
+                visitied[poll] = 1;
+
+                for (int[] ints : networkList) {
+                    int nx = ints[0];
+                    int ny = ints[1];
+                    if (poll == nx) {
+                        integerQueue.add(ny);
+                        networkList.remove(ints);
+                    } else if (poll == ny) {
+                        integerQueue.add(nx);
+                        networkList.remove(ints);
+                    }
+                }
+
+            }
+            answer += 1;
         }
 
+        for(int i = 0 ; i < n ; i++){
+            if(visitied[i] == 0 ){
+                answer += 1;
+            }
+        }
 
         return answer;
     }
