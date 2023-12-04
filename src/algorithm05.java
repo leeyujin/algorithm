@@ -26,6 +26,7 @@ public class algorithm05 {
                 {0,0,0,1,1}
         };
 
+        // 답 1
         int inputArr4[][] = {
                 {1,0,0,1,1},
                 {0,1,1,0,1},
@@ -34,9 +35,19 @@ public class algorithm05 {
                 {0,1,0,0,1}
         };
 
+        // 답 1, n = 7
+        int[][] inputArr5= {
+                {1,0,0,0,0,0,1},
+                {0,1,1,0,1,0,0},
+                {0,1,1,1,0,0,0},
+                {0,0,1,1,0,0,0},
+                {0,1,0,0,1,1,0},
+                {0,0,0,0,1,1,1},
+                {1,0,0,0,0,1,1}
+        };
 
 
-        System.out.println(solution(5, inputArr3));
+        System.out.println(solution(7, inputArr5));
     }
 
     static Queue<int[]> queue = new LinkedList<>();
@@ -76,6 +87,7 @@ public class algorithm05 {
         Queue<Integer> integerQueue = new LinkedList<>();
         int[] visitied = new int[n];
 
+
         while( !networkList.isEmpty()){
             int[] points = networkList.remove();
             int x = points[0];
@@ -87,15 +99,17 @@ public class algorithm05 {
                 Integer poll = integerQueue.poll();
                 visitied[poll] = 1;
 
-                for (int[] ints : networkList) {
+                Iterator<int[]> iterator = networkList.iterator();
+                while (iterator.hasNext()) {
+                    int[] ints = iterator.next();
                     int nx = ints[0];
                     int ny = ints[1];
                     if (poll == nx) {
                         integerQueue.add(ny);
-                        networkList.remove(ints);
+                        iterator.remove();
                     } else if (poll == ny) {
                         integerQueue.add(nx);
-                        networkList.remove(ints);
+                        iterator.remove();
                     }
                 }
 
