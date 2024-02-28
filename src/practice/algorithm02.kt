@@ -1,3 +1,5 @@
+package practice
+
 // https://school.programmers.co.kr/learn/courses/30/lessons/43165?language=kotlin
 // 타켓넘버
 class Solution {

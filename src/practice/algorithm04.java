@@ -1,4 +1,4 @@
-// https://www.acmicpc.net/problem/14502 연구소
+package practice;// https://www.acmicpc.net/problem/14502 연구소
 
 import java.util.*;
 

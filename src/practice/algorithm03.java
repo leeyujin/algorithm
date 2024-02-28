@@ -1,3 +1,5 @@
+package practice;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,7 +13,6 @@ public class algorithm03 {
     static int[] dx = {1 , 0 , -1 , 0};
     static int[] dy = {0 , 1 , 0 , -1};
     static int sum = 1;
-    static List<Integer> list = new ArrayList<>();
 
 
     public static void main(String[] args) {
@@ -33,7 +34,7 @@ public class algorithm03 {
                 {0,0,0,0,1}
         };
         System.out.println(solution(inputArr));
-//        System.out.println(solution(inputArr2));
+//        System.out.println(practice.solution(inputArr2));
 
     }
 

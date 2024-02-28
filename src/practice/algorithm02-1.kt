@@ -1,3 +1,5 @@
+package practice
+
 fun main() {
 
     val solution = solution(intArrayOf(1, 1,1, 1,1), 3)

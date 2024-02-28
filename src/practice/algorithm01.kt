@@ -1,4 +1,4 @@
-
+package practice
 // https://www.youtube.com/watch?v=IlMVmQ7hG4w&ab_channel=algorithmjobs
 // 단짠단짠
 /**
@@ -20,7 +20,7 @@ fun main(){
         .split(" ")
         .map { it.toInt() }
 
-//    완전탐색(foodFlavorList)
+//    practice.완전탐색(foodFlavorList)
     누적합배열_카운팅맵(foodFlavorList)
 
 
